@@ -1,0 +1,650 @@
+@import "_nullstyle.scss"; // файл обнуления стилей
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap'); // подключаем шрифты
+
+
+body {
+	font-family: "Lato", sans-serif; // задаем шрифт, ранее подключенный
+}
+
+.wrapper {
+	overflow: hidden; // что бы если чего вылезет - не ломало макет			
+	min-height: 100%;
+	
+.page{
+	position: absolute; // относительно окна просмотра ставим всю страницу
+	top: 0;             // явно указывая начало сверху
+	left: 0;            // ... и слева
+	width: 100%;        // 100% ширины и
+	height: 100%;       // высоты родителя. это надо везде делать
+	display: flex; 
+	flex-direction: column;	 // разворачиваем в колонну heder, main, footer
+}
+}
+.header {	
+	// позволяем увеличиваться, запрещаем уменьшаться, базовый размер 100%
+	flex: 1 0 100%; // что бы сделать фуллскрин во весь heder
+	position: relative; // что бы дочерние позиционировать от heder
+
+	&__fullscreen {
+		background: url(../img/header/header_bike.png) center center/cover no-repeat;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;     
+		height: 100%;    
+	}	
+
+	&__menu {		
+		max-width: 664px;    // 634px по макету и по +15px для padding-ов
+		margin: 35px auto 0 auto;
+		padding: 0 15px;		
+	}
+
+	&__list {
+		font-size: 13px;
+		line-height: 1.2;
+		font-weight: 700;
+		text-transform: uppercase; 
+		letter-spacing: 0.2em;
+		color: #4d4959;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;		
+	}
+	&__point {
+		display: none;
+	}
+	&__logo {		
+	}
+
+	@media (max-width: 599px) {      // для ширины меньше или равно 599px   
+		&__fullscreen {
+			background: #282f35;
+		}
+		&__menu {		
+				
+		}
+		&__list {
+			font-size: 18px;			
+			color: #fff;	
+			flex-direction: column;		
+
+		}	
+		&__point {
+			display: block;
+		}
+		&__logo {	
+			order: -1;
+			margin-bottom: 40px;		
+		}	
+	}
+}
+.main {	
+	flex: 1 1 auto;   	//позволяем увеличиваться и уменьшаться, 
+	width: 100%;		//базовый размер заполняет доступное пространство
+}
+
+.about {	
+	width: 100%;
+	background-color: #f7f7f7;	
+
+	&__container {
+		max-width: 1120px;
+		margin: 0 auto;		
+		text-align: center;
+	}
+
+	&__logo {
+		padding: 117px 0 34px 0;		
+	}
+
+	&__title {				
+		margin: 0 0 30px 0;			
+		padding: 0 20px;
+	}
+
+	&__text {				
+		font-size: 18px;
+		line-height: 34px;		
+		color: #848789;		
+		padding: 0 20px 122px;	
+	}
+	@media (max-width: 599px) {
+		&__logo {
+			padding-top: 80px;		
+		}
+		&__text {							
+			padding-bottom: 80px;	
+		}
+	}
+	@media (max-width: 425px) {
+		&__logo {
+			padding-top: 60px;		
+		}
+		&__text {							
+			padding-bottom: 60px;	
+		}
+	}
+}
+.title {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: #353738;
+}
+.mosaic {	
+	@media (min-width: 1024px) {              // для ширины больше или равно 1024px                                              
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(9, minmax(200px, 1fr));   //минимум 200px, если больше - то 1fr
+		grid-template-areas: "cell1 cell1 cell2"
+	                     	"cell1 cell1 cell2"
+						 	"cell1 cell1 cell3"
+						 	"cell4 cell6 cell6"
+						 	"cell4 cell6 cell6"
+						 	"cell5 cell6 cell6"
+						 	"cell7 cell8 cell10"
+						 	"cell7 cell8 cell10"
+						 	"cell7 cell9 cell10"
+		;
+	}
+
+	@media (max-width: 1023px) {	           // для ширины меньше или равно 1023px   
+		& > div {
+			min-height: 200px;		//картинки надо бы больше. пока не знаю как сделать
+		}			
+	}
+
+
+	&__cell1 {
+		background: url(../img/mosaic/mosaic_bike1.png) center center/cover no-repeat;
+		grid-area: cell1;
+	}
+
+	&__cell2 {	
+		grid-area: cell2;	
+	}
+
+	&__cell3 {
+		background: url(../img/mosaic/mosaic_bike2.png) center center/cover no-repeat;
+		grid-area: cell3;
+	}
+
+	&__cell4 {
+		grid-area: cell4;
+	}
+
+	&__cell5 {
+		background: url(../img/mosaic/mosaic_bike3.png) center center/cover no-repeat;
+		grid-area: cell5;
+	}
+
+	&__cell6 {
+		background: url(../img/mosaic/mosaic_bike4.png) center center/cover no-repeat;
+		grid-area: cell6;
+	}
+
+	&__cell7 {
+		background: url(../img/mosaic/mosaic_bike5.png) center center/cover no-repeat;
+		grid-area: cell7;
+	}
+
+	&__cell8 {
+		grid-area: cell8;
+	}
+
+	&__cell9 {
+		background: url(../img/mosaic/mosaic_bike6.png) center center/cover no-repeat;
+		grid-area: cell9;
+	}
+
+	&__cell10 {
+		background: url(../img/mosaic/mosaic_bike7.png) center center/cover no-repeat;
+		grid-area: cell10;
+	}
+}
+
+.with-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.white-logo {			
+}
+.complex-cell {		
+	display: flex;    //это здесь для того, что бы псевдоэлемент вставал куда нужно. Я не понял почему так, но это работает
+	position: relative;	
+
+		&__container {
+			max-width: 75%;			//в макете - в пикселях, я делаю адаптивно в %
+			margin: 0 auto;				
+		}
+
+		&__logo {
+			margin: 70px 0 31px 0;			
+			text-align: center;
+		}
+
+		&__title {
+			font-size: 18px;			
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			color: #353738;
+			text-align: center;
+			margin-bottom: 26px;
+		}
+
+		&__text {
+			font-size: 16px;
+			line-height: 30px;
+			font-weight: 400;
+			color: #848789;
+			text-align: justify;	
+			margin-bottom: 40px;		
+		}
+
+		&__line {
+			width: 51px;
+			height: 1px;
+			background-color: #848789;
+			margin: 0 auto;			
+			margin-bottom: 54px;
+		}		
+
+
+		&::after{
+			content: "";
+			width: 0;
+			height: 0;			
+			border-top: 10px solid white;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;			
+			position: absolute;
+			bottom: -9px;			
+			left: 50%;
+			transform: translate(-50%, 0);	
+			z-index: 10;		
+		}
+		@media (max-width: 1023px) {
+			&__logo {
+				margin: 50px auto 20px auto;
+			}
+			&__title {
+				margin-bottom: 15px;
+			}
+			&__text {
+				margin-bottom: 20px;
+			}
+			&__line {
+				margin-bottom: 40px;
+			}
+			&::after{
+				border-top: 15px solid white;
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;	
+				bottom: -14px;									
+			}
+		}
+}
+
+.twitter {   //вообще то это слайдер, но я еще не прошел это, пока верстаю как картинку
+	height: 469px;
+	background-color: #f7f7f7;	
+	position: relative;    //для абсолютного позиционирования точек ниже
+
+		&__container {			
+			max-width: 1200px;
+			margin: 0 auto;			
+		}
+
+		&__logo {			
+			text-align: center;	
+			padding: 7.75% 0 37px 0;					
+		}
+
+		&__title {
+			font-size: 18px;
+			line-height: 1.2;
+			font-weight: 300;
+			color: #848789;
+			letter-spacing: 0.1em;			
+			text-align: center;
+			margin: 0 0 27px 0;			
+		}
+
+		&__title-bold {
+			font-weight: 700;			
+			color: #353738;
+		}
+
+		&__text {
+			font-weight: 400;			
+			font-size: 24px;
+			line-height: 34px;		
+			font-style: italic;
+			color: #848789;			
+			text-align: center;
+			margin: 0 auto;
+			padding: 0 30px;
+		}
+
+		&__dots {
+			display: flex;						
+			position: absolute;		
+			bottom: 4.25vw;	
+			left: 50%;
+			transform: translate(-50%, -50%);			
+		}
+}
+.dot1 {
+	width: 11px;
+	height: 11px;
+	background-color: #a9afb3;
+	border-radius: 50%;
+}
+.dot2 {
+	width: 11px;
+	height: 11px;
+	background-color: rgba(40,47,53,0.0);
+	border: 1px solid #c8c8c8;
+	border-radius: 50%;
+	margin: 0 9px;
+}
+.dot3 {
+	width: 11px;
+	height: 11px;
+	background-color: rgba(40,47,53,0.0);
+	border: 1px solid #c8c8c8;
+	border-radius: 50%;
+}
+
+.shop {
+	@media (max-width: 499px) {             // для ширины меньше или равно 499px
+		&__images > div {
+			height: 50vw;			
+		}
+	}		
+	@media (min-width: 500px) {   // для ширины больше или равно 500px - потом переопределится на 1024px, но пока браузер не знает										
+		&__images {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(6, 50vw);
+			grid-template-areas: "img1 img3"
+								 "img2 img2"
+								 "img4 img5"
+								 "img4 img5"
+								 "img6 img6"
+								 "img7 img8"
+		;		
+		}
+	}
+	@media (min-width: 1024px) {             // для ширины больше или равно 1024px											
+		&__images {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+			grid-template-rows: repeat(2, 16.69vw);
+			grid-template-areas: "img1 img3 img4 img5 img6 img6"
+								 "img2 img2 img4 img5 img7 img8"
+		;
+		}
+	}
+
+	&__images1 {
+		background: url(../img/shop/shop1.png) center center/cover no-repeat;
+		grid-area: img1;
+	}
+
+	&__images2 {
+		background: url(../img/shop/shop2.png) center center/cover no-repeat;
+		grid-area: img2;
+	}
+
+	&__images3 {
+		background: url(../img/shop/shop3.png) center center/cover no-repeat;
+		grid-area: img3;
+	}
+
+	&__images4 {
+		background: url(../img/shop/shop4.png) center center/cover no-repeat;
+		grid-area: img4;
+	}
+
+	&__images5 {
+		background: url(../img/shop/shop5.png) center center/cover no-repeat;
+		grid-area: img5;
+	}
+
+	&__images6 {
+		background: url(../img/shop/shop6.png) center center/cover no-repeat;
+		grid-area: img6;			
+	}
+
+	&__images7 {
+		background: url(../img/shop/shop7.png) center center/cover no-repeat;
+		grid-area: img7;
+	}
+
+	&__images8 {
+		background: url(../img/shop/shop8.png) center center/cover no-repeat;
+		grid-area: img8;
+	}
+	&__bloklink {	
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;	
+		justify-content: center;		
+		align-items: center;
+	}
+	&__logo {			
+		margin-bottom: 14px;
+	}
+	&__text {
+		font-size: 14px;		
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #ffffff;		
+	}
+	
+	&__bottom {
+		height: 200px;
+		background-color: #282f35;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__button {
+		width: 300px;
+		height: 50px;
+		background-color: rgba(255,255,255,0.0);
+		border: 1px solid rgba(255,255,255,0.49);
+		text-align: center;	
+	}
+	&__button:hover {
+		border: none;
+	}
+
+	&__button-text {
+		display: inline-block;
+		width: 100%;		
+		font-size: 14px;
+		line-height: 50px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #ffffff;							
+	}
+	&__button-text:hover {
+		background-color: #fff;
+		color: black;		
+		box-shadow: 0 0 20px 0 gray inset, 0 0 10px 3px gray;
+		text-shadow: 5px 5px 10px gray;
+		transition: all 150ms ease-in-out;
+	}
+	&__button-text:active {				
+		position: relative;
+		top: 5px;
+	}
+
+}
+// Делаем картинку, а поверх неё - полупрозрачный фон:
+// 1) Создаем див (.shop__images6) и задаем ему в бэкграунд основную картинку 
+// 2) Создаем див-дочку (.shop__images6-translucent)и задаем ему в бэкграунд полупрозрачный фон,
+// а так же width и heiht по 100% что бы этот дочерний див растянулся полупрозраным бэкграндом на всю площадь родителя
+.translucent {													
+	background: rgba(100,194,158,0.8) center center/cover no-repeat;	  
+	width: 100%;															
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;	// по умолчанию он не виден, а при ховере - виден	
+	// причем так весь блок, иконка внутри (см html) тоже
+}	
+.translucent:hover{
+	opacity: 1;
+	transition: opacity 200ms ease-in-out;
+}		
+
+.mail {
+
+	&__container {
+		height: 469px;			
+	}
+
+	&__row {		
+		text-align: center;		
+	}
+
+	&__row-logo {	
+		margin-top: 109px;
+		margin-bottom: 39px;
+		
+	}
+
+	&__row-title {		
+		font-size: 24px;
+		line-height: 34px;		
+		font-style: italic;
+		color: #848789;
+		margin-bottom: 35px;		
+	}
+
+	&__row-line {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 12px;
+	}
+
+	&__row-line-form {
+		width: 400px;
+		height: 69px;	
+		background-color: #ffffff;
+		border: 1px solid #d3d7d9;
+		display: flex;
+		align-items: center;		
+	}
+
+	&__row-line-form-input {
+		font-size: 20px;
+		line-height: 24px;		
+		font-style: italic;
+		color: #929292;
+		margin-left: 26px;	
+		&::placeholder {
+			color: #d3d3d3;
+		}			
+	}
+ 
+	&__row-line-button {
+		width: 126px;
+		height: 69px;	
+		background-color: #64c29e;
+		margin-left: 8px;		
+		font-size: 24px;
+		line-height: 69px;
+		font-weight: 300;
+		color: #ffffff;		
+	}
+	&__row-line-button:hover {
+		background-color: #ffffff;	
+		color: #64c29e;
+		font-weight: 500;	
+		box-shadow: 0 0 50px 0 #64c29e inset, 0 0 10px 5px #4da181;			
+		transition: all 200ms ease-in-out;
+	}
+	&__row-line-button:active {
+		width: 121px;
+		height: 64px;
+		margin-left: 10.5px;
+		margin-right: 2.5px;
+		line-height: 64px;	
+		transition: all 100ms ease-in-out;
+	}
+}
+
+.footer {	
+	flex: 0 0 250px;	//запрет увеличения/сужения, базовый размер по макету
+	background-color: #f7f7f7;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__row {
+		width: 1130px; // 1100px - ширина блока, 15px - на левый и правый внешний отступ (марджин), что бы футер не бился в края на узком экране
+		margin: 0 15px;
+		display: flex;
+	}
+
+	&__contacts {	
+		flex: 0 0 33.33%;	  // для блока запрет раширения/сужения, размер = 1/3 всего доступного расстояния
+		color: #848789;
+		font-size: 13.9px;
+		font-weight: 400;
+		font-style: italic;
+		line-height: 17px;
+		& p:first-child {
+			font-weight: 700;
+			font-style: normal;
+			font-size: 16px;
+		}						
+	}
+
+	&__socials {
+		text-align: center;
+		flex: 0 0 33.33%;			// для блока запрет раширения/сужения, размер = 1/3 всего доступного расстояния
+		align-self: center;
+		& img{
+			display: inline-block;
+		}
+		& :nth-child(2){
+			margin: 0 15px;
+		}			
+	}
+
+	&__by {			
+		margin-left: auto;				// для блока свойство flex не задаем, просто весь блок прижимаем с помощью margin: auto;
+		display: flex;
+		align-items: center;	
+	}
+
+	&__by-text {		
+		width: 100px;
+		font-size: 13.9px;
+		line-height: 17px;
+		font-weight: 400;
+		font-style: italic;
+		color: #848789;		
+		margin-right: 9px;		
+	}
+
+	&__by-logo {	
+	}
+}
