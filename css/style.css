@@ -391,7 +391,7 @@ body {
 }
 
 .twitter {
-  height: 469px;
+  min-height: 469px;
   background-color: #f7f7f7;
   position: relative;
 }
@@ -429,7 +429,7 @@ body {
   color: #848789;
   text-align: center;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 30px 15vw;
 }
 
 .twitter__dots {
@@ -579,6 +579,7 @@ body {
 .shop__button {
   width: 300px;
   height: 50px;
+  margin: 0 15px;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid rgba(255, 255, 255, 0.49);
   text-align: center;
@@ -639,7 +640,9 @@ body {
 }
 
 .mail__container {
-  height: 469px;
+  max-width: 534px;
+  padding: 110px 0;
+  margin: 0 auto;
 }
 
 .mail__row {
@@ -647,19 +650,19 @@ body {
 }
 
 .mail__row-logo {
-  margin-top: 109px;
   margin-bottom: 39px;
 }
 
 .mail__row-title {
   font-size: 24px;
-  line-height: 34px;
   font-style: italic;
   color: #848789;
-  margin-bottom: 35px;
+  margin-bottom: 38px;
 }
 
-.mail__row-line {
+.mail__row-form {
+  height: 69px;
+  margin: 0 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -669,49 +672,37 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 12px;
 }
 
-.mail__row-line-form {
+.mail__row-form-input {
   width: 400px;
   height: 69px;
-  background-color: #ffffff;
-  border: 1px solid #d3d7d9;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mail__row-line-form-input {
   font-size: 20px;
   line-height: 24px;
   font-style: italic;
   color: #929292;
-  margin-left: 26px;
+  border: 1px solid #d3d7d9;
+  padding: 0 28px;
 }
 
-.mail__row-line-form-input::-webkit-input-placeholder {
+.mail__row-form-input::-webkit-input-placeholder {
   color: #d3d3d3;
 }
 
-.mail__row-line-form-input:-ms-input-placeholder {
+.mail__row-form-input:-ms-input-placeholder {
   color: #d3d3d3;
 }
 
-.mail__row-line-form-input::-ms-input-placeholder {
+.mail__row-form-input::-ms-input-placeholder {
   color: #d3d3d3;
 }
 
-.mail__row-line-form-input::placeholder {
+.mail__row-form-input::placeholder {
   color: #d3d3d3;
 }
 
-.mail__row-line-button {
+.mail__row-form-button {
   width: 126px;
-  height: 69px;
   background-color: #64c29e;
   margin-left: 8px;
   font-size: 24px;
@@ -720,7 +711,7 @@ body {
   color: #ffffff;
 }
 
-.mail__row-line-button:hover {
+.mail__row-form-button:hover {
   background-color: #ffffff;
   color: #64c29e;
   font-weight: 500;
@@ -731,7 +722,7 @@ body {
   transition: all 200ms ease-in-out;
 }
 
-.mail__row-line-button:active {
+.mail__row-form-button:active {
   width: 121px;
   height: 64px;
   margin-left: 10.5px;
@@ -744,10 +735,13 @@ body {
 
 @media (max-width: 768px) {
   .mail__container {
-    height: 369px;
+    padding: 50px 0;
   }
-  .mail__row-logo {
-    margin-top: 69px;
+}
+
+@media (max-width: 600px) {
+  .mail__container {
+    padding: 30px 0;
   }
 }
 
@@ -842,10 +836,13 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 250px;
+    padding: 50px 0;
   }
   .footer__contacts {
     text-align: center;
+  }
+  .footer__socials {
+    padding: 30px 0;
   }
   .footer__by {
     margin: 0;
