@@ -40,16 +40,19 @@ body {
 		padding: 0 15px;		
 	}
 
-	&__list {
+	&__list {		
+		display: flex;
+		justify-content: space-between;
+		align-items: center;		
+	}
+	&__list a{
 		font-size: 13px;
 		line-height: 1.2;
 		font-weight: 700;
 		text-transform: uppercase; 
 		letter-spacing: 0.2em;
 		color: #4d4959;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;		
+		
 	}
 	&__point {
 		display: none;
@@ -59,17 +62,18 @@ body {
 
 	@media (max-width: 599px) {      // для ширины меньше или равно 599px   
 		&__fullscreen {
-			background: #282f35;
+			background: #282f35;			
 		}
 		&__menu {		
 				
 		}
-		&__list {
+		&__list {			
+			flex-direction: column;		
+		}	
+		&__list li, &__list a {
 			font-size: 18px;			
 			color: #fff;	
-			flex-direction: column;		
-
-		}	
+		}
 		&__point {
 			display: block;
 		}
@@ -362,13 +366,8 @@ body {
 	border-radius: 50%;
 }
 
-.shop {
-	@media (max-width: 499px) {             // для ширины меньше или равно 499px
-		&__images > div {
-			height: 50vw;			
-		}
-	}		
-	@media (min-width: 500px) {   // для ширины больше или равно 500px - потом переопределится на 1024px, но пока браузер не знает										
+.shop {	
+	@media (max-width: 1023px) {   // для ширины меньше или равно 1024px	
 		&__images {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
@@ -494,8 +493,8 @@ body {
 
 }
 // Делаем картинку, а поверх неё - полупрозрачный фон:
-// 1) Создаем див (.shop__images6) и задаем ему в бэкграунд основную картинку 
-// 2) Создаем див-дочку (.shop__images6-translucent)и задаем ему в бэкграунд полупрозрачный фон,
+// 1) Создаем див и задаем ему в бэкграунд основную картинку 
+// 2) Создаем див-дочку (.translucent) и задаем ему в бэкграунд полупрозрачный фон,
 // а так же width и heiht по 100% что бы этот дочерний див растянулся полупрозраным бэкграндом на всю площадь родителя
 .translucent {													
 	background: rgba(100,194,158,0.8) center center/cover no-repeat;	  
@@ -509,11 +508,10 @@ body {
 }	
 .translucent:hover{
 	opacity: 1;
-	transition: opacity 200ms ease-in-out;
+	transition: opacity 150ms ease;
 }		
 
 .mail {
-
 	&__container {
 		height: 469px;			
 	}
@@ -588,6 +586,14 @@ body {
 		line-height: 64px;	
 		transition: all 100ms ease-in-out;
 	}
+	@media (max-width: 768px) {             // для ширины меньше или равно 768px
+		&__container {
+			height: 369px;			
+		}
+		&__row-logo {	
+			margin-top: 69px;
+		}
+	}
 }
 
 .footer {	
@@ -597,10 +603,10 @@ body {
 	align-items: center;
 	justify-content: center;
 
-	&__row {
+	&__content {
 		width: 1130px; // 1100px - ширина блока, 15px - на левый и правый внешний отступ (марджин), что бы футер не бился в края на узком экране
 		margin: 0 15px;
-		display: flex;
+		display: flex;			
 	}
 
 	&__contacts {	
@@ -614,7 +620,7 @@ body {
 			font-weight: 700;
 			font-style: normal;
 			font-size: 16px;
-		}						
+		}								
 	}
 
 	&__socials {
@@ -646,5 +652,19 @@ body {
 	}
 
 	&__by-logo {	
+	}
+	@media (max-width: 599px) {             // для ширины меньше или равно 599px
+		&__content {
+			flex-direction: column;			
+			justify-content: center;
+			align-items: center;
+			height: 250px;
+		}
+		&__contacts {	
+			text-align: center;		
+		}
+		&__by {
+			margin: 0;
+		}
 	}
 }
