@@ -1,15 +1,55 @@
 @import "_nullstyle.scss"; // файл обнуления стилей
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap'); // подключаем шрифты
 
+html {
+	scroll-behavior: smooth; //скролл кнопки делаем плавным
+}
 
 body {
 	font-family: "Lato", sans-serif; // задаем шрифт, ранее подключенный
+	position: relative;
+}
+.scroll {
+	position: fixed;
+	width: 90px;
+	height: 90px;
+	bottom: 3vh;
+	left: 3vh;	
+	z-index: 1;	
+	border-radius: 50%;
+	&:hover {
+		background-color: white;		
+		transition: all 300ms ease 0s;
+	}
+	&:active {
+		transform: scale(0.9);
+	}
+
+	&__link {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+	}
+	&__link img {
+		width: 100%;
+		height: 100%;
+		// свойством filter перекрашиваем черный (цвет исходной картинки)
+		// в нужный нам цвет с помощью css
+		filter: invert(72%) sepia(7%) saturate(2019%) hue-rotate(105deg) brightness(91%) contrast(106%);
+		opacity: 0.7;
+		// сама стрелка - transparent
+	}
+	&__link img:hover {
+		opacity: 1;
+		transition: all 300ms ease 0s;
+	}	
 }
 
-.wrapper {
-	overflow: hidden; // что бы если чего вылезет - не ломало макет			
+.wrapper {	
 	min-height: 100%;
-	
+}	
+
 .page{
 	position: absolute; // относительно окна просмотра ставим всю страницу
 	top: 0;             // явно указывая начало сверху
@@ -18,7 +58,6 @@ body {
 	height: 100%;       // высоты родителя. это надо везде делать
 	display: flex; 
 	flex-direction: column;	 // разворачиваем в колонну heder, main, footer
-}
 }
 .header {	
 	// позволяем увеличиваться, запрещаем уменьшаться, базовый размер 100%
@@ -55,6 +94,8 @@ body {
 		
 	}
 	&__point {
+	}
+	&__midpoint {
 		display: none;
 	}
 	&__logo {		
@@ -64,17 +105,20 @@ body {
 		&__fullscreen {
 			background: #282f35;			
 		}
-		&__menu {		
-				
+		&__menu {				
 		}
 		&__list {			
-			flex-direction: column;		
+			flex-direction: column;			
 		}	
 		&__list li, &__list a {
 			font-size: 18px;			
 			color: #fff;	
 		}
 		&__point {
+			position: relative;
+			bottom: 7px;
+		}
+		&__midpoint {
 			display: block;
 		}
 		&__logo {	
@@ -90,7 +134,7 @@ body {
 
 .about {	
 	width: 100%;
-	background-color: #f7f7f7;	
+	background-color: #f7f7f7;		
 
 	&__container {
 		max-width: 1120px;

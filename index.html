@@ -15,33 +15,36 @@
 	</head>
 	<!-- Отображаемое тело страницы -->
 	<body> 
-		<div class="wrapper"> 			
+		<div class="scroll">			
+			<a href="#" class="scroll__link"><img src="/img/body/arrow.png" alt=""></a>
+		</div>		
+		<div class="wrapper">
 			<div class="page">
 				<header class="header">
 					<div class="header__fullscreen">
 						<nav class="header__menu">
 							<ul class="header__list">
-								<li><a href="#">about us</a></li>
-								<li>.</li>
-								<li><a href="#">work</a></li>
+								<li><a href="#about">about us</a></li>
 								<li class="header__point">.</li>
+								<li><a href="#work">work</a></li>
+								<li class="header__midpoint header__point">.</li>
 								<li class="header__logo"><img src="img/header/header_logo.png" alt=""></li>
-								<li><a href="#">shop</a></li>
-								<li>.</li>
-								<li><a href="#">contact</a></li>
+								<li><a href="#shop">shop</a></li>
+								<li class="header__point">.</li>
+								<li><a href="#contact">contact</a></li>
 							</ul>
 						</nav>
 					</div>
 				</header>
-				<main class="main">
-					<div class="about">
+				<main class="main">					
+					<div class="about" id="about">						
 						<div class="about__container">
 							<div class="about__logo"><img src="img/about/about_logo.png" alt=""></div>
 							<div class="about__title title">A NEW GENERATION OF VINTAGE BIKE</div>
 							<div class="about__text"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p></div>
 						</div>
 					</div>
-					<div class="mosaic">
+					<div class="mosaic" id="work">
 						<div class="mosaic__cell1 with-logo">					
 							<div class="white-logo">
 								<img src="img/mosaic/mosaic_bike_logo1.png" alt="">
@@ -104,7 +107,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="shop">
+					<div class="shop" id="shop">
 						<div class="shop__images">
 							<div class="shop__images1">
 								<div class="translucent">
@@ -173,7 +176,7 @@
 						</div>
 						<div class="shop__bottom">
 							<div class="shop__button">
-								<a href="#" class="shop__button-text">DISCOVER THE SHOP</a>
+								<a href="example.com" class="shop__button-text">DISCOVER THE SHOP</a>
 							</div>
 						</div>
 					</div>
@@ -192,19 +195,19 @@
 				</main>
 				<footer class="footer">
 					<div class="footer__content">
-						<div class="footer__contacts">
+						<div class="footer__contacts" id="contact">
 							<p>AOD New York</p>
 							<p>2250 Lexington Avenue</p>
 							<p>New York, NY 10035  - info@domain.com</p>
 						</div>
 						<div class="footer__socials">
-							<a href="#"><img src="img/footer/footer_twitter.png" alt=""></a>
-							<a href="#"><img src="img/footer/footer_fb.png" alt=""></a>
-							<a href="#"><img src="img/footer/footer_p.png" alt=""></a>
+							<a href="twitter.com"><img src="img/footer/footer_twitter.png" alt=""></a>
+							<a href="facebook.com"><img src="img/footer/footer_fb.png" alt=""></a>
+							<a href="example.com"><img src="img/footer/footer_p.png" alt=""></a>
 						</div>
 						<div class="footer__by">
 							<p class="footer__by-text">Handcrafted by</p>
-							<a href="#"><img class="footer__by-logo" src="img/footer/footer_yebo.png" alt=""></a>
+							<a href="example.com"><img class="footer__by-logo" src="img/footer/footer_yebo.png" alt=""></a>
 						</div>
 					</div>
 				</footer>
