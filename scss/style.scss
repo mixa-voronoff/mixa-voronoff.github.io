@@ -157,7 +157,7 @@ body {
 		color: #848789;		
 		padding: 0 20px 122px;	
 	}
-	@media (max-width: 599px) {
+	@media (max-width: 799px) {
 		&__logo {
 			padding-top: 80px;		
 		}
@@ -186,7 +186,7 @@ body {
 	@media (min-width: 1024px) {              // для ширины больше или равно 1024px                                              
 		overflow: hidden;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: repeat(9, minmax(200px, 1fr));   //минимум 200px, если больше - то 1fr
 		grid-template-areas: "cell1 cell1 cell2"
 	                     	"cell1 cell1 cell2"
@@ -200,15 +200,19 @@ body {
 		;
 	}
 
-	@media (max-width: 1023px) {	           // для ширины меньше или равно 1023px   
+	@media (max-width: 1023px) {   // для ширины меньше или равно 1023px   
 		& > div {
-			min-height: 200px;		//картинки надо бы больше. пока не знаю как сделать
-		}			
+			min-height: 200px;
+		}
+		&__cell1, &__cell3, &__cell5, &__cell6, 
+		&__cell7, &__cell9, &__cell10 {
+			height: 50vw;
+		}
 	}
 
 
 	&__cell1 {
-		background: url(../img/mosaic/mosaic_bike1.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike1.png) center / cover no-repeat;
 		grid-area: cell1;
 	}
 
@@ -217,7 +221,7 @@ body {
 	}
 
 	&__cell3 {
-		background: url(../img/mosaic/mosaic_bike2.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike2.png) center / cover no-repeat;
 		grid-area: cell3;
 	}
 
@@ -226,17 +230,17 @@ body {
 	}
 
 	&__cell5 {
-		background: url(../img/mosaic/mosaic_bike3.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike3.png) center / cover no-repeat;
 		grid-area: cell5;
 	}
 
 	&__cell6 {
-		background: url(../img/mosaic/mosaic_bike4.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike4.png) center / cover no-repeat;
 		grid-area: cell6;
 	}
 
 	&__cell7 {
-		background: url(../img/mosaic/mosaic_bike5.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike5.png) center / cover no-repeat;
 		grid-area: cell7;
 	}
 
@@ -245,23 +249,33 @@ body {
 	}
 
 	&__cell9 {
-		background: url(../img/mosaic/mosaic_bike6.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike6.png) center / cover no-repeat;
 		grid-area: cell9;
 	}
 
 	&__cell10 {
-		background: url(../img/mosaic/mosaic_bike7.png) center center/cover no-repeat;
+		background: url(../img/mosaic/mosaic_bike7.png) center / cover no-repeat;
 		grid-area: cell10;
 	}
 }
 
 .with-logo {
+	
+}
+
+.white-logo {		
+	width: 100%;
+	height: 100%;		
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center;		
+	opacity: 0;
 }
-.white-logo {			
+.white-logo:hover {
+	opacity: 1;
+	transition: opacity 100ms ease 0s;
 }
+
 .complex-cell {		
 	display: flex;    //это здесь для того, что бы псевдоэлемент вставал куда нужно. Я не понял почему так, но это работает
 	position: relative;	
@@ -342,18 +356,17 @@ body {
 .twitter {   //вообще то это слайдер, но я еще не прошел это, пока верстаю как картинку
 	min-height: 469px;
 	background-color: #f7f7f7;	
-	position: relative;    //для абсолютного позиционирования точек ниже
+	position: relative;
 
 		&__container {			
 			max-width: 1200px;
-			margin: 0 auto;			
+			margin: 0 auto;					
 		}
 
 		&__logo {			
 			text-align: center;	
-			padding: 7.75% 0 37px 0;					
-		}
-
+			padding: 7.75vw 0 37px 0;							
+		}		
 		&__title {
 			font-size: 18px;
 			line-height: 1.2;
@@ -363,12 +376,10 @@ body {
 			text-align: center;
 			margin: 0 0 27px 0;			
 		}
-
 		&__title-bold {
 			font-weight: 700;			
 			color: #353738;
 		}
-
 		&__text {
 			font-weight: 400;			
 			font-size: 24px;
@@ -377,37 +388,39 @@ body {
 			color: #848789;			
 			text-align: center;
 			margin: 0 auto;
-			padding: 0 30px 15vw;  //15vw здесь, что бы текст на кнопки не наезжал на узком экране
+			padding: 0 30px 15vw; //15vw здесь, что бы текст на кнопки не наезжал на узком экране
 		}
 
-		&__dots {
-			display: flex;						
-			position: absolute;		
-			bottom: 4.25vw;	
+		&__boxdots {
+			display: flex;
+			position: absolute;
+			bottom: 68px;									
 			left: 50%;
-			transform: translate(-50%, -50%);			
+			transform: translate(-50%,0);
+		}		
+		&__boxdots > div:nth-child(2) {
+			margin: 0 9px;
+		}	
+		&__radio input {
+			display: none;
+		}	
+		&__radio label {
+			cursor: pointer;
 		}
-}
-.dot1 {
-	width: 11px;
-	height: 11px;
-	background-color: #a9afb3;
-	border-radius: 50%;
-}
-.dot2 {
-	width: 11px;
-	height: 11px;
-	background-color: rgba(40,47,53,0.0);
-	border: 1px solid #c8c8c8;
-	border-radius: 50%;
-	margin: 0 9px;
-}
-.dot3 {
-	width: 11px;
-	height: 11px;
-	background-color: rgba(40,47,53,0.0);
-	border: 1px solid #c8c8c8;
-	border-radius: 50%;
+		&__radio label:before {
+			content: "";
+			display: inline-block;
+			width: 11px;
+			height: 11px;			
+			background-color: rgba(40,47,53,0.0);
+			border: 1px solid #c8c8c8;
+			border-radius: 50%;
+		}
+		&__radio input:checked + label:before{			
+			background-color: #a9afb3;
+			border: 0;
+		}	
+		
 }
 
 .shop {	
@@ -437,42 +450,42 @@ body {
 	}
 
 	&__images1 {
-		background: url(../img/shop/shop1.png) center center/cover no-repeat;
+		background: url(../img/shop/shop1.png) center / cover no-repeat;
 		grid-area: img1;
 	}
 
 	&__images2 {
-		background: url(../img/shop/shop2.png) center center/cover no-repeat;
+		background: url(../img/shop/shop2.png) center / cover no-repeat;
 		grid-area: img2;
 	}
 
 	&__images3 {
-		background: url(../img/shop/shop3.png) center center/cover no-repeat;
+		background: url(../img/shop/shop3.png) center / cover no-repeat;
 		grid-area: img3;
 	}
 
 	&__images4 {
-		background: url(../img/shop/shop4.png) center center/cover no-repeat;
+		background: url(../img/shop/shop4.png) center / cover no-repeat;
 		grid-area: img4;
 	}
 
 	&__images5 {
-		background: url(../img/shop/shop5.png) center center/cover no-repeat;
+		background: url(../img/shop/shop5.png) center / cover no-repeat;
 		grid-area: img5;
 	}
 
 	&__images6 {
-		background: url(../img/shop/shop6.png) center center/cover no-repeat;
+		background: url(../img/shop/shop6.png) center / cover no-repeat;
 		grid-area: img6;			
 	}
 
 	&__images7 {
-		background: url(../img/shop/shop7.png) center center/cover no-repeat;
+		background: url(../img/shop/shop7.png) center / cover no-repeat;
 		grid-area: img7;
 	}
 
 	&__images8 {
-		background: url(../img/shop/shop8.png) center center/cover no-repeat;
+		background: url(../img/shop/shop8.png) center / cover no-repeat;
 		grid-area: img8;
 	}
 	&__bloklink {	
@@ -579,8 +592,7 @@ body {
 	}
 
 	&__row-form {		
-		height: 69px;
-		margin: 0 15px; //что бы в края не бился
+		height: 69px;		
 		display: flex;		
 		justify-content: center;
 		align-items: center;			
@@ -588,6 +600,7 @@ body {
 
 	&__row-form-input {		
 		width: 400px;
+		max-width: 100%;
 		height: 69px;
 		font-size: 20px;
 		line-height: 24px;		
@@ -616,23 +629,33 @@ body {
 		box-shadow: 0 0 50px 0 #64c29e inset, 0 0 10px 5px #4da181;			
 		transition: all 200ms ease-in-out;
 	}
-	&__row-form-button:active {
-		width: 121px;
-		height: 64px;
-		margin-left: 10.5px;
-		margin-right: 2.5px;
-		line-height: 64px;	
+	&__row-form-button:active {	
+		transform: scale(0.9);
 		transition: all 100ms ease-in-out;
 	}
-	@media (max-width: 768px) {             // для ширины меньше или равно 768px
+	@media (max-width: 768px) {    // для ширины меньше или равно 768px
 		&__container {			
 			padding: 50px 0;
 		}		
 	}
-	@media (max-width: 600px) {             // для ширины меньше или равно 600px
+	@media (max-width: 550px) {    // для ширины меньше или равно 550px
 		&__container {			
-			padding: 30px 0;
+			padding: 40px 0;
+		}
+		&__row-form {			
+			height: 148px;
+			flex-direction: column;	
+			justify-content: space-between;		
+			margin: 0 20px; //что бы в края не бился
 		}		
+		&__row-form-button {
+			width: 400px;
+			max-width: 100%;
+			margin-left: 0;
+		}
+		&__row-form-button:active {
+			transform: scale(0.95);
+		}
 	}
 	
 }
