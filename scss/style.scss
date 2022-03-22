@@ -1,737 +1,92 @@
-@import "_nullstyle.scss"; // файл обнуления стилей
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap'); // подключаем шрифты
+@import "_nullstyle.scss"; // Файл обнуления стилей
 
-html {
-	scroll-behavior: smooth; //скролл кнопки делаем плавным
-}
-
+/*Стили для демонстрации*/
 body {
-	font-family: "Lato", sans-serif; // задаем шрифт, ранее подключенный
-	position: relative;
-}
-.scroll {
-	position: fixed;
-	width: 50px;
-	height: 50px;
-	bottom: 2vh;
-	left: 2vh;	
-	z-index: 1;	
-	border-radius: 50%;
-	&:hover {
-		background-color: white;		
-		transition: all 300ms ease 0s;
-	}
-	&:active {
-		transform: scale(0.9);
-	}
-
-	&__link {
-		display: block;
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-	}
-	&__link img {
-		width: 100%;
-		height: 100%;
-		// свойством filter перекрашиваем черный (цвет исходной картинки)
-		// в нужный нам цвет с помощью css
-		filter: invert(72%) sepia(7%) saturate(2019%) hue-rotate(105deg) brightness(91%) contrast(106%);
-		opacity: 0.5;
-		// сама стрелка - transparent
-	}
-	&__link img:hover {
-		opacity: 1;
-		transition: all 300ms ease 0s;
-	}	
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;        
 }
 
-.wrapper {	
-	min-height: 100%;
-}	
-
-.page{
-	position: absolute; // относительно окна просмотра ставим всю страницу
-	top: 0;             // явно указывая начало сверху
-	left: 0;            // ... и слева
-	width: 100%;        // 100% ширины и
-	height: 100%;       // высоты родителя. это надо везде делать
-	display: flex; 
-	flex-direction: column;	 // разворачиваем в колонну heder, main, footer
-}
-.header {	
-	// позволяем увеличиваться, запрещаем уменьшаться, базовый размер 100%
-	flex: 1 0 100%; // что бы сделать фуллскрин во весь heder
-	position: relative; // что бы дочерние позиционировать от heder
-
-	&__fullscreen {
-		background: url(../img/header/header_bike.png) center center/cover no-repeat;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;     
-		height: 100%;    
-	}	
-
-	&__menu {		
-		max-width: 664px;    // 634px по макету и по +15px для padding-ов
-		margin: 35px auto 0 auto;
-		padding: 0 15px;		
-	}
-
-	&__list {		
-		display: flex;
-		justify-content: space-between;
-		align-items: center;		
-	}
-	&__list a{
-		font-size: 13px;
-		line-height: 1.2;
-		font-weight: 700;
-		text-transform: uppercase; 
-		letter-spacing: 0.2em;
-		color: #4d4959;
-		
-	}
-	&__point {
-	}
-	&__midpoint {
-		display: none;
-	}
-	&__logo {		
-	}
-
-	@media (max-width: 599px) {      // для ширины меньше или равно 599px   
-		&__fullscreen {
-			background: #282f35;			
-		}
-		&__menu {				
-		}
-		&__list {			
-			flex-direction: column;			
-		}	
-		&__list li, &__list a {
-			font-size: 18px;			
-			color: #fff;	
-		}
-		&__point {
-			position: relative;
-			bottom: 7px;
-		}
-		&__midpoint {
-			display: block;
-		}
-		&__logo {	
-			order: -1;
-			margin-bottom: 40px;		
-		}	
-	}
-}
-.main {	
-	flex: 1 1 auto;   	//позволяем увеличиваться и уменьшаться, 
-	width: 100%;		//базовый размер заполняет доступное пространство
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
 }
 
-.about {	
-	width: 100%;
-	background-color: #f7f7f7;		
-
-	&__container {
-		max-width: 1120px;
-		margin: 0 auto;		
-		text-align: center;
-	}
-
-	&__logo {
-		padding: 117px 0 34px 0;		
-	}
-
-	&__title {				
-		margin: 0 0 30px 0;			
-		padding: 0 20px;
-	}
-
-	&__text {				
-		font-size: 18px;
-		line-height: 34px;		
-		color: #848789;		
-		padding: 0 20px 122px;	
-	}
-	@media (max-width: 799px) {
-		&__logo {
-			padding-top: 80px;		
-		}
-		&__text {							
-			padding-bottom: 80px;	
-		}
-	}
-	@media (max-width: 425px) {
-		&__logo {
-			padding-top: 60px;		
-		}
-		&__text {							
-			padding-bottom: 60px;	
-		}
-	}
+/*Основные стили*/
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
-.title {
-	font-size: 18px;
-	line-height: 24px;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	color: #353738;
-}
-.mosaic {	
-	@media (min-width: 1024px) {              // для ширины больше или равно 1024px                                              
-		overflow: hidden;
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: repeat(9, minmax(200px, 1fr));   //минимум 200px, если больше - то 1fr
-		grid-template-areas: "cell1 cell1 cell2"
-	                     	"cell1 cell1 cell2"
-						 	"cell1 cell1 cell3"
-						 	"cell4 cell6 cell6"
-						 	"cell4 cell6 cell6"
-						 	"cell5 cell6 cell6"
-						 	"cell7 cell8 cell10"
-						 	"cell7 cell8 cell10"
-						 	"cell7 cell9 cell10"
-		;
-	}
+.parallax {
+    position: relative;
+    height: 100%;
 
-	@media (max-width: 1023px) {   // для ширины меньше или равно 1023px   
-		& > div {
-			min-height: 200px;
-		}
-		&__cell1, &__cell3, &__cell5, &__cell6, 
-		&__cell7, &__cell9, &__cell10 {
-			height: 50vw;
-		}
-	}
+		&__mountain {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
 
+			&_1 {
+                background: url(../img/m_1.png) 0 0 / cover no-repeat;
+			}
 
-	&__cell1 {
-		background: url(../img/mosaic/mosaic_bike1.png) center / cover no-repeat;
-		grid-area: cell1;
-	}
+			&_2 {
+                z-index: 1;
+                background: url(../img/m_2.png) bottom right / 45% no-repeat;
+			}
 
-	&__cell2 {	
-		grid-area: cell2;	
-	}
-
-	&__cell3 {
-		background: url(../img/mosaic/mosaic_bike2.png) center / cover no-repeat;
-		grid-area: cell3;
-	}
-
-	&__cell4 {
-		grid-area: cell4;
-	}
-
-	&__cell5 {
-		background: url(../img/mosaic/mosaic_bike3.png) center / cover no-repeat;
-		grid-area: cell5;
-	}
-
-	&__cell6 {
-		background: url(../img/mosaic/mosaic_bike4.png) center / cover no-repeat;
-		grid-area: cell6;
-	}
-
-	&__cell7 {
-		background: url(../img/mosaic/mosaic_bike5.png) center / cover no-repeat;
-		grid-area: cell7;
-	}
-
-	&__cell8 {
-		grid-area: cell8;
-	}
-
-	&__cell9 {
-		background: url(../img/mosaic/mosaic_bike6.png) center / cover no-repeat;
-		grid-area: cell9;
-	}
-
-	&__cell10 {
-		background: url(../img/mosaic/mosaic_bike7.png) center / cover no-repeat;
-		grid-area: cell10;
-	}
-}
-
-.with-logo {
-	
-}
-
-.white-logo {		
-	width: 100%;
-	height: 100%;		
-	display: flex;
-	justify-content: center;
-	align-items: center;		
-	opacity: 0;
-}
-.white-logo:hover {
-	opacity: 1;
-	transition: opacity 100ms ease 0s;
-}
-
-.complex-cell {		
-	display: flex;    //это здесь для того, что бы псевдоэлемент вставал куда нужно. Я не понял почему так, но это работает
-	position: relative;	
-
-		&__container {
-			max-width: 75%;			//в макете - в пикселях, я делаю адаптивно в %
-			margin: 0 auto;				
+			&_3 {
+                z-index: 1;
+                background: url(../img/m_3.png) bottom left / 100% no-repeat;
+			}
 		}
 
-		&__logo {
-			margin: 70px 0 31px 0;			
-			text-align: center;
+		&__fog {            
+            background: url(../img/fog_1.png) bottom / 100% no-repeat;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+
+		}
+}
+.content {
+    position: relative;
+
+		&__body {
+            max-width: 1170px;
+            margin: 0 auto;
+		}
+
+		&__header {
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 0 20px;
 		}
 
 		&__title {
-			font-size: 18px;			
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 0.2em;
-			color: #353738;
-			text-align: center;
-			margin-bottom: 26px;
+            font-size: 200px;
 		}
 
-		&__text {
-			font-size: 16px;
-			line-height: 30px;
-			font-weight: 400;
-			color: #848789;
-			text-align: justify;	
-			margin-bottom: 40px;		
+		&__subtitle {
+            font-size: 120px;
 		}
 
-		&__line {
-			width: 51px;
-			height: 1px;
-			background-color: #848789;
-			margin: 0 auto;			
-			margin-bottom: 54px;
-		}		
-
-
-		&::after{
-			content: "";
-			width: 0;
-			height: 0;			
-			border-top: 10px solid white;
-			border-left: 10px solid transparent;
-			border-right: 10px solid transparent;			
-			position: absolute;
-			bottom: -9px;			
-			left: 50%;
-			transform: translate(-50%, 0);	
-			z-index: 10;		
-		}
-		@media (max-width: 1023px) {
-			&__logo {
-				margin: 50px auto 20px auto;
-			}
-			&__title {
-				margin-bottom: 15px;
-			}
-			&__text {
-				margin-bottom: 20px;
-			}
-			&__line {
-				margin-bottom: 40px;
-			}
-			&::after{
-				border-top: 15px solid white;
-				border-left: 15px solid transparent;
-				border-right: 15px solid transparent;	
-				bottom: -14px;									
-			}
-		}
-}
-
-.twitter {   //вообще то это слайдер, но я еще не прошел это, пока верстаю как картинку
-	min-height: 469px;
-	background-color: #f7f7f7;	
-	position: relative;
-
-		&__container {			
-			max-width: 1200px;
-			margin: 0 auto;					
+		&__article {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 25px;
+            font-size: 18px;
+            line-height: 24px;
 		}
 
-		&__logo {			
-			text-align: center;	
-			padding: 7.75vw 0 37px 0;							
-		}		
-		&__title {
-			font-size: 18px;
-			line-height: 1.2;
-			font-weight: 300;
-			color: #848789;
-			letter-spacing: 0.1em;			
-			text-align: center;
-			margin: 0 0 27px 0;			
-		}
-		&__title-bold {
-			font-weight: 700;			
-			color: #353738;
-		}
-		&__text {
-			font-weight: 400;			
-			font-size: 24px;
-			line-height: 34px;		
-			font-style: italic;
-			color: #848789;			
-			text-align: center;
-			margin: 0 auto;
-			padding: 0 30px 15vw; //15vw здесь, что бы текст на кнопки не наезжал на узком экране
-		}
-
-		&__boxdots {
-			display: flex;
-			position: absolute;
-			bottom: 68px;									
-			left: 50%;
-			transform: translate(-50%,0);
-		}		
-		&__boxdots > div:nth-child(2) {
-			margin: 0 9px;
-		}	
-		&__radio input {
-			display: none;
-		}	
-		&__radio label {
-			cursor: pointer;
-		}
-		&__radio label:before {
-			content: "";
-			display: inline-block;
-			width: 11px;
-			height: 11px;			
-			background-color: rgba(40,47,53,0.0);
-			border: 1px solid #c8c8c8;
-			border-radius: 50%;
-		}
-		&__radio input:checked + label:before{			
-			background-color: #a9afb3;
-			border: 0;
-		}	
-		
-}
-
-.shop {	
-	@media (max-width: 1023px) {   // для ширины меньше или равно 1024px	
-		&__images {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(6, 50vw);
-			grid-template-areas: "img1 img3"
-								 "img2 img2"
-								 "img4 img5"
-								 "img4 img5"
-								 "img6 img6"
-								 "img7 img8"
-		;		
-		}
-	}
-	@media (min-width: 1024px) {             // для ширины больше или равно 1024px											
-		&__images {
-			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-			grid-template-rows: repeat(2, 16.69vw);
-			grid-template-areas: "img1 img3 img4 img5 img6 img6"
-								 "img2 img2 img4 img5 img7 img8"
-		;
-		}
-	}
-
-	&__images1 {
-		background: url(../img/shop/shop1.png) center / cover no-repeat;
-		grid-area: img1;
-	}
-
-	&__images2 {
-		background: url(../img/shop/shop2.png) center / cover no-repeat;
-		grid-area: img2;
-	}
-
-	&__images3 {
-		background: url(../img/shop/shop3.png) center / cover no-repeat;
-		grid-area: img3;
-	}
-
-	&__images4 {
-		background: url(../img/shop/shop4.png) center / cover no-repeat;
-		grid-area: img4;
-	}
-
-	&__images5 {
-		background: url(../img/shop/shop5.png) center / cover no-repeat;
-		grid-area: img5;
-	}
-
-	&__images6 {
-		background: url(../img/shop/shop6.png) center / cover no-repeat;
-		grid-area: img6;			
-	}
-
-	&__images7 {
-		background: url(../img/shop/shop7.png) center / cover no-repeat;
-		grid-area: img7;
-	}
-
-	&__images8 {
-		background: url(../img/shop/shop8.png) center / cover no-repeat;
-		grid-area: img8;
-	}
-	&__bloklink {	
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;	
-		justify-content: center;		
-		align-items: center;
-	}
-	&__logo {			
-		margin-bottom: 14px;
-	}
-	&__text {
-		font-size: 14px;		
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.2em;
-		color: #ffffff;		
-	}
-	
-	&__bottom {
-		height: 200px;
-		background-color: #282f35;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	&__button {
-		width: 300px;
-		height: 50px;
-		margin: 0 15px;
-		background-color: rgba(255,255,255,0.0);
-		border: 1px solid rgba(255,255,255,0.49);
-		text-align: center;	
-	}
-	&__button:hover {
-		border: none;
-	}
-
-	&__button-text {
-		display: inline-block;		
-		width: 100%;		
-		font-size: 14px;
-		line-height: 50px;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.2em;
-		color: #ffffff;							
-	}
-	&__button-text:hover {
-		background-color: #fff;
-		color: black;		
-		box-shadow: 0 0 20px 0 gray inset, 0 0 10px 3px gray;
-		text-shadow: 5px 5px 10px gray;
-		transition: all 150ms ease-in-out;
-	}
-	&__button-text:active {				
-		position: relative;
-		top: 5px;
-	}
-
-}
-// Делаем картинку, а поверх неё - полупрозрачный фон:
-// 1) Создаем див и задаем ему в бэкграунд основную картинку 
-// 2) Создаем див-дочку (.translucent) и задаем ему в бэкграунд полупрозрачный фон,
-// а так же width и heiht по 100% что бы этот дочерний див растянулся полупрозраным бэкграндом на всю площадь родителя
-.translucent {													
-	background: rgba(100,194,158,0.8) center center/cover no-repeat;	  
-	width: 100%;															
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	opacity: 0;	// по умолчанию он не виден, а при ховере - виден	
-	// причем так весь блок, иконка внутри (см html) тоже
-}	
-.translucent:hover{
-	opacity: 1;
-	transition: opacity 150ms ease;
-}		
-
-.mail {
-	&__container {
-		max-width: 534px;	//задаем границы контейнера
-		padding: 110px 0;				
-		margin: 0 auto;		//центрируем весь контейнер
-	}
-
-	&__row {
-		text-align: center;	//центрируем инлайны внутри 
-	}
-
-	&__row-logo {			
-		margin-bottom: 39px;		
-	}
-
-	&__row-title {		
-		font-size: 24px;		
-		font-style: italic;
-		color: #848789;
-		margin-bottom: 38px;		
-	}
-
-	&__row-form {		
-		height: 69px;		
-		display: flex;		
-		justify-content: center;
-		align-items: center;			
-	}
-
-	&__row-form-input {		
-		width: 400px;
-		max-width: 100%;
-		height: 69px;
-		font-size: 20px;
-		line-height: 24px;		
-		font-style: italic;
-		color: #929292;		
-		border: 1px solid #d3d7d9;	
-		padding: 0 28px;   //и слева и справа отступ от рамки
-		&::placeholder {
-			color: #d3d3d3;
-		}		
-	}
- 
-	&__row-form-button {
-		width: 126px;		
-		background-color: #64c29e;
-		margin-left: 8px;		
-		font-size: 24px;
-		line-height: 69px;
-		font-weight: 300;
-		color: #ffffff;		
-	}
-	&__row-form-button:hover {
-		background-color: #ffffff;	
-		color: #64c29e;
-		font-weight: 500;	
-		box-shadow: 0 0 50px 0 #64c29e inset, 0 0 10px 5px #4da181;			
-		transition: all 200ms ease-in-out;
-	}
-	&__row-form-button:active {	
-		transform: scale(0.9);
-		transition: all 100ms ease-in-out;
-	}
-	@media (max-width: 768px) {    // для ширины меньше или равно 768px
-		&__container {			
-			padding: 50px 0;
-		}		
-	}
-	@media (max-width: 550px) {    // для ширины меньше или равно 550px
-		&__container {			
-			padding: 40px 0;
-		}
-		&__row-form {			
-			height: 148px;
-			flex-direction: column;	
-			justify-content: space-between;		
-			margin: 0 20px; //что бы в края не бился
-		}		
-		&__row-form-button {
-			width: 400px;
-			max-width: 100%;
-			margin-left: 0;
-		}
-		&__row-form-button:active {
-			transform: scale(0.95);
-		}
-	}
-	
-}
-
-.footer {	
-	flex: 0 0 250px;	//запрет увеличения/сужения, базовый размер по макету
-	background-color: #f7f7f7;	
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&__content {
-		width: 1130px; // 1100px - ширина блока, 15px - на левый и правый внешний отступ (марджин), что бы футер не бился в края на узком экране
-		margin: 0 15px;
-		display: flex;			
-	}
-
-	&__contacts {	
-		flex: 0 0 33.33%;	  // для блока запрет раширения/сужения, размер = 1/3 всего доступного расстояния
-		color: #848789;
-		font-size: 13.9px;
-		font-weight: 400;
-		font-style: italic;
-		line-height: 17px;
-		& p:first-child {
-			font-weight: 700;
-			font-style: normal;
-			font-size: 16px;
-		}								
-	}
-
-	&__socials {
-		text-align: center;
-		flex: 0 0 33.33%;			// для блока запрет раширения/сужения, размер = 1/3 всего доступного расстояния
-		align-self: center;
-		& img{
-			display: inline-block;
-		}
-		& :nth-child(2){
-			margin: 0 15px;
-		}			
-	}
-
-	&__by {			
-		margin-left: auto;				// для блока свойство flex не задаем, просто весь блок прижимаем с помощью margin: auto;
-		display: flex;
-		align-items: center;	
-	}
-
-	&__by-text {		
-		width: 100px;
-		font-size: 13.9px;
-		line-height: 17px;
-		font-weight: 400;
-		font-style: italic;
-		color: #848789;		
-		margin-right: 9px;		
-	}
-
-	&__by-logo {	
-	}
-	@media (max-width: 599px) {   // для ширины меньше или равно 599px
-		&__content {
-			flex-direction: column;			
-			justify-content: center;
-			align-items: center;
-			padding: 50px 0;			
-		}
-		&__contacts {	
-			text-align: center;		
-		}
-		&__socials {
-			padding: 30px 0;
-		}
-		&__by {
-			margin: 0;
-		}
-	}	
+        & p {
+            margin-bottom: 20px;
+        }
 }

@@ -1,228 +1,51 @@
 <!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <!-- Оболочка документа, указываем язык содержимого -->
 <html lang="ru">
 	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
 	<head>
 		<!-- Заголовок страницы в браузере -->
-		<title>Vintage Bikes</title>
-		<!-- Адаптив -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Заголовок</title>
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="css/style.css" />
-		<!-- Подключаем иконку -->
-		<link rel="shortcut icon" href="favicon.png" type="image/png">
 		<!-- Кодировка страницы -->
 		<meta charset="UTF-8">
+		<!-- Адаптив -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	</head>
 	<!-- Отображаемое тело страницы -->
-	<body> 
-		<div class="scroll">			
-			<a href="#" class="scroll__link"><img src="img/body/arrow.png" alt=""></a>
-		</div>		
+	<body>
+		<!-- Оболочка для демонстрации -->
 		<div class="wrapper">
+			<!-- Контент -->
 			<div class="page">
-				<header class="header">
-					<div class="header__fullscreen">
-						<nav class="header__menu">
-							<ul class="header__list">
-								<li><a href="#about">about us</a></li>
-								<li class="header__point">.</li>
-								<li><a href="#work">work</a></li>
-								<li class="header__midpoint header__point">.</li>
-								<li class="header__logo"><img src="img/header/header_logo.png" alt=""></li>
-								<li><a href="#shop">shop</a></li>
-								<li class="header__point">.</li>
-								<li><a href="#contact">contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</header>
-				<main class="main">					
-					<section class="about" id="about">						
-						<div class="about__container">
-							<div class="about__logo"><img src="img/about/about_logo.png" alt=""></div>
-							<h1 class="about__title title">A NEW GENERATION OF VINTAGE BIKE</h1>
-							<p class="about__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+				<div class="parallax">
+					<div class="parallax__mountain parallax__mountain_1"></div>
+					<div class="parallax__mountain parallax__mountain_2"></div>
+					<div class="parallax__mountain parallax__mountain_3"></div>
+					<div class="parallax__fog"></div>
+				</div>
+				<div class="content">
+					<div class="content__body">
+						<div class="content__header">
+							<h1 class="content__title">Привет!</h1>
+							<h2 class="content__subtitle">Это Фрилансер по жизни!</h2>
 						</div>
-					</section>
-					<section class="mosaic" id="work">
-						<div class="mosaic__cell1 with-logo">					
-							<div class="white-logo">
-								<img src="img/mosaic/mosaic_bike_logo1.png" alt="">
-							</div>
-						</div>
-						<div class="mosaic__cell2 complex-cell">
-							<div class="complex-cell__container">
-								<div class="complex-cell__logo">
-									<img src="img/mosaic/mosaic_logo1.png" alt="">
-								</div>
-								<h2 class="complex-cell__title">vintage Oliva</h2>
-								<p class="complex-cell__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived. </p>
-								<div class="complex-cell__line"></div>
-							</div>
-						</div>
-						<div class="mosaic__cell3"></div>
-						<div class="mosaic__cell4 complex-cell">
-							<div class="complex-cell__container">
-								<div class="complex-cell__logo">
-									<img src="img/mosaic/mosaic_logo2.png" alt="">
-								</div>
-								<h2 class="complex-cell__title">La Boriosa</h2>
-								<p class="complex-cell__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
-								<div class="complex-cell__line"></div>
-							</div>
-						</div>
-						<div class="mosaic__cell5"></div>
-						<div class="mosaic__cell6 with-logo">
-							<div class="white-logo">
-								<img src="img/mosaic/mosaic_bike_logo2.png" alt="">
-							</div>
-						</div>
-						<div class="mosaic__cell7 with-logo">
-							<div class="white-logo">
-								<img src="img/mosaic/mosaic_bike_logo3.png" alt="">
-							</div>
-						</div>
-						<div class="mosaic__cell8 complex-cell">
-							<div class="complex-cell__container">
-								<div class="complex-cell__logo">
-									<img src="img/mosaic/mosaic_logo3.png" alt="">
-								</div>
-								<h2 class="complex-cell__title">retrò Bike - M. Hulot</h2>
-								<p class="complex-cell__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
-								<div class="complex-cell__line"></div>
-							</div>
-						</div>
-						<div class="mosaic__cell9"></div>
-						<div class="mosaic__cell10"></div>
-					</section>
-					<section class="twitter">
-						<div class="twitter__container">
-							<div class="twitter__logo"><img src="img/twitter/twitter_logo.png" alt=""></div>
-							<p class="twitter__title"><span class="twitter__title-bold">AOD New York  @aod</span>  /  35 min</p>
-							<p class="twitter__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.</p>			
-							<div class="twitter__boxdots">
-								<div class="twitter__radio">
-									<input id="radio-1" type="radio" name="radio" value="1" checked>
-									<label for="radio-1"></label>
-								</div>								 
-								<div class="twitter__radio">
-									<input id="radio-2" type="radio" name="radio" value="2">
-									<label for="radio-2"></label>									
-								</div>								 
-								<div class="twitter__radio">
-									<input id="radio-3" type="radio" name="radio" value="3">
-									<label for="radio-3"></label>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="shop" id="shop">
-						<div class="shop__images">
-							<div class="shop__images1">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images2">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images3">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images4">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images5">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images6">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images7">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>
-							<div class="shop__images8">
-								<div class="translucent">
-									<a class="shop__bloklink" href="#">
-										<img class="shop__logo" src="img/shop/shop_logo.png" alt="">
-										<p class="shop__text">Shop now</p>
-									</a>
-								</div>
-							</div>						
-						</div>
-						<div class="shop__bottom">
-							<div class="shop__button">
-								<a href="example.com" class="shop__button-text">DISCOVER THE SHOP</a>
-							</div>
-						</div>
-					</section>
-					<section class="mail">
-						<div class="mail__container">
-							<div class="mail__row">
-								<div class="mail__row-logo"><img src="img/mail/mail-logo.png" alt=""></div>
-								<h3 class="mail__row-title">Stay on the saddle!</h3>
-								<form action="#" class="mail__row-form">								
-									<input class="mail__row-form-input" type="text" name="email" placeholder="enter your email...">							
-									<button class="mail__row-form-button" type="submit">GO</button>
-								</form>								
-							</div>
-						</div>
-					</section>								 
-				</main>
-				<footer class="footer">
-					<div class="footer__content">
-						<div class="footer__contacts" id="contact">
-							<p>AOD New York</p>
-							<p>2250 Lexington Avenue</p>
-							<p>New York, NY 10035  - info@domain.com</p>
-						</div>
-						<div class="footer__socials">
-							<a href="twitter.com"><img src="img/footer/footer_twitter.png" alt=""></a>
-							<a href="facebook.com"><img src="img/footer/footer_fb.png" alt=""></a>
-							<a href="example.com"><img src="img/footer/footer_p.png" alt=""></a>
-						</div>
-						<div class="footer__by">
-							<p class="footer__by-text">Handcrafted by</p>
-							<a href="example.com"><img class="footer__by-logo" src="img/footer/footer_yebo.png" alt=""></a>
+						<div class="content__article">
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam unde, obcaecati impedit amet quas architecto velit cupiditate optio quod! Praesentium veritatis beatae nisi autem, facere saepe consequuntur id sit obcaecati eaque nihil totam molestiae repellat. Quos sit ducimus iusto, dolorum eveniet numquam dolorem exercitationem cum? Corrupti ullam voluptatem beatae hic quas voluptatibus numquam incidunt, deleniti, ipsam assumenda sed, placeat id molestias iste sequi nisi maxime quibusdam perspiciatis! Odit eum temporibus aut in quod doloremque commodi necessitatibus nobis. Veniam illo possimus eligendi voluptatum vero cum voluptatibus esse inventore at assumenda pariatur culpa rerum dicta, itaque distinctio exercitationem est non tenetur enim consequuntur recusandae expedita. Perferendis aspernatur id assumenda impedit blanditiis. Facere quod, ullam ab, vel iste doloribus autem quidem sed animi ut, provident corrupti tenetur incidunt? Perferendis, nesciunt officiis. Quae nulla quisquam sint amet, vel expedita assumenda eligendi praesentium sit nostrum, ab mollitia asperiores dolores voluptatibus quaerat quam fugiat saepe culpa ipsa placeat ratione ad. Porro officia quo officiis nesciunt molestiae dolor? Aut temporibus ex optio perspiciatis placeat. Dicta ea rerum, nam molestias fugit eveniet illo sed perspiciatis facilis incidunt quo ipsum harum deleniti corrupti. Cumque ipsa inventore repudiandae? Voluptatem optio omnis alias at illum placeat deleniti repudiandae ducimus dolore consequuntur corporis laboriosam tempora iste id numquam et accusantium, voluptatibus doloribus saepe recusandae beatae cupiditate fugiat ullam. Aut nihil atque architecto suscipit temporibus eos modi iure maiores officiis praesentium iste ad et, magnam commodi, sint quo nisi ipsam, ab molestiae dolore sequi vel. Eos voluptate architecto in non aperiam natus adipisci eum illo perspiciatis magni incidunt pariatur illum atque voluptatem cumque expedita, enim dolorem nesciunt obcaecati itaque nam. Sunt nesciunt magni ipsum facere pariatur, veniam fugiat culpa fuga iste assumenda, aliquid repudiandae rerum expedita totam neque similique unde consequatur enim. Temporibus, quidem aperiam? Libero autem tempore optio facere, quibusdam magnam! Recusandae, doloribus libero reprehenderit commodi repudiandae perspiciatis modi ipsam impedit sapiente, eligendi iure similique tenetur, dolore minima. Architecto commodi aperiam dolorum alias atque maiores deleniti, molestiae veniam inventore dolores aliquid, animi quibusdam eius repudiandae voluptatum, repellat omnis dolorem perspiciatis iure odit eos maxime! Alias dolor cum tempora. Consectetur dignissimos blanditiis odio? Culpa quidem officia fugiat, amet nihil at, id adipisci dolorum cum tempore, atque quibusdam autem tenetur eius eveniet libero! Voluptatem, facere. Animi, quisquam velit aspernatur veritatis dolorem cum deleniti quae voluptates molestiae quibusdam omnis corporis corrupti sit voluptas consequuntur vel minima id rem aut quasi mollitia error! Quam dolorum assumenda ab enim, magni officiis exercitationem ratione aliquid sit illo. Odio dolore culpa eligendi mollitia ratione amet sapiente! Quae, doloribus possimus atque omnis dolore officiis corporis! Repudiandae, mollitia excepturi at est corporis praesentium doloribus deserunt commodi voluptatum voluptatem itaque ad perspiciatis quisquam, incidunt ea saepe minus recusandae expedita, architecto iste! Maiores natus dolorum, obcaecati quia nihil quis numquam voluptatibus quidem, dolor quaerat distinctio ducimus provident tenetur, sapiente praesentium possimus quae asperiores consectetur quod unde aperiam enim labore! Quasi, aspernatur facilis cumque magni quia inventore culpa veniam nihil eos eum molestiae et recusandae, sapiente sed non voluptate repellat, odio dolores? Accusantium, modi!
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam unde, obcaecati impedit amet quas architecto velit cupiditate optio quod! Praesentium veritatis beatae nisi autem, facere saepe consequuntur id sit obcaecati eaque nihil totam molestiae repellat. Quos sit ducimus iusto, dolorum eveniet numquam dolorem exercitationem cum? Corrupti ullam voluptatem beatae hic quas voluptatibus numquam incidunt, deleniti, ipsam assumenda sed, placeat id molestias iste sequi nisi maxime quibusdam perspiciatis! Odit eum temporibus aut in quod doloremque commodi necessitatibus nobis. Veniam illo possimus eligendi voluptatum vero cum voluptatibus esse inventore at assumenda pariatur culpa rerum dicta, itaque distinctio exercitationem est non tenetur enim consequuntur recusandae expedita. Perferendis aspernatur id assumenda impedit blanditiis. Facere quod, ullam ab, vel iste doloribus autem quidem sed animi ut, provident corrupti tenetur incidunt? Perferendis, nesciunt officiis. Quae nulla quisquam sint amet, vel expedita assumenda eligendi praesentium sit nostrum, ab mollitia asperiores dolores voluptatibus quaerat quam fugiat saepe culpa ipsa placeat ratione ad. Porro officia quo officiis nesciunt molestiae dolor? Aut temporibus ex optio perspiciatis placeat. Dicta ea rerum, nam molestias fugit eveniet illo sed perspiciatis facilis incidunt quo ipsum harum deleniti corrupti. Cumque ipsa inventore repudiandae? Voluptatem optio omnis alias at illum placeat deleniti repudiandae ducimus dolore consequuntur corporis laboriosam tempora iste id numquam et accusantium, voluptatibus doloribus saepe recusandae beatae cupiditate fugiat ullam. Aut nihil atque architecto suscipit temporibus eos modi iure maiores officiis praesentium iste ad et, magnam commodi, sint quo nisi ipsam, ab molestiae dolore sequi vel. Eos voluptate architecto in non aperiam natus adipisci eum illo perspiciatis magni incidunt pariatur illum atque voluptatem cumque expedita, enim dolorem nesciunt obcaecati itaque nam. Sunt nesciunt magni ipsum facere pariatur, veniam fugiat culpa fuga iste assumenda, aliquid repudiandae rerum expedita totam neque similique unde consequatur enim. Temporibus, quidem aperiam? Libero autem tempore optio facere, quibusdam magnam! Recusandae, doloribus libero reprehenderit commodi repudiandae perspiciatis modi ipsam impedit sapiente, eligendi iure similique tenetur, dolore minima. Architecto commodi aperiam dolorum alias atque maiores deleniti, molestiae veniam inventore dolores aliquid, animi quibusdam eius repudiandae voluptatum, repellat omnis dolorem perspiciatis iure odit eos maxime! Alias dolor cum tempora. Consectetur dignissimos blanditiis odio? Culpa quidem officia fugiat, amet nihil at, id adipisci dolorum cum tempore, atque quibusdam autem tenetur eius eveniet libero! Voluptatem, facere. Animi, quisquam velit aspernatur veritatis dolorem cum deleniti quae voluptates molestiae quibusdam omnis corporis corrupti sit voluptas consequuntur vel minima id rem aut quasi mollitia error! Quam dolorum assumenda ab enim, magni officiis exercitationem ratione aliquid sit illo. Odio dolore culpa eligendi mollitia ratione amet sapiente! Quae, doloribus possimus atque omnis dolore officiis corporis! Repudiandae, mollitia excepturi at est corporis praesentium doloribus deserunt commodi voluptatum voluptatem itaque ad perspiciatis quisquam, incidunt ea saepe minus recusandae expedita, architecto iste! Maiores natus dolorum, obcaecati quia nihil quis numquam voluptatibus quidem, dolor quaerat distinctio ducimus provident tenetur, sapiente praesentium possimus quae asperiores consectetur quod unde aperiam enim labore! Quasi, aspernatur facilis cumque magni quia inventore culpa veniam nihil eos eum molestiae et recusandae, sapiente sed non voluptate repellat, odio dolores? Accusantium, modi!
+							</p>
 						</div>
 					</div>
-				</footer>
+				</div>
 			</div>
 		</div>
+		<!-- Подключаем JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<!-- Подключаем файл JQ-скриптов -->
+		<script src="js/script.js"></script>		 
 	</body>
 </html>
