@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Gabelisa Font by Keithzo (7NTypes)';
+  src: url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.eot);
+  src: url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.eot?#iefix) format('embedded-opentype'),
+       url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.otf) format('otf'),
+       url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.svg#Gabelisa%20Font%20by%20Keithzo%20%287NTypes%29) format('svg'),
+       url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.ttf) format('truetype'),
+       url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.woff) format('woff'),
+       url(./Gabelisa+Font+by+Keithzo+%287NTypes%29.woff2) format('woff2');
+}
