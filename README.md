@@ -1,1 +1,0 @@
-# mixa-voronoff.github.io
